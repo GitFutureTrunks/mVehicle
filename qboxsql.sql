@@ -6,12 +6,12 @@
 
 
 CREATE TABLE `player_vehicles` (
-  `id` int(11) NOT NULL,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `license` varchar(50) DEFAULT NULL,
   `citizenid` varchar(50) DEFAULT NULL,
   `vehicle` longtext DEFAULT NULL,
   `hash` varchar(50) DEFAULT NULL,
-  `mods` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_bin DEFAULT NULL,
+  `mods` longtext DEFAULT NULL,
   `plate` varchar(50) NOT NULL,
   `fakeplate` varchar(50) DEFAULT NULL,
   `garage` varchar(50) DEFAULT NULL,
@@ -20,7 +20,7 @@ CREATE TABLE `player_vehicles` (
   `body` float DEFAULT 1000,
   `state` int(11) DEFAULT 1,
   `depotprice` int(11) NOT NULL DEFAULT 0,
-  `drivingdistance` int(50) DEFAULT NULL,
+  `drivingdistance` int DEFAULT NULL,
   `status` text DEFAULT NULL,
   `glovebox` longtext DEFAULT NULL,
   `trunk` longtext DEFAULT NULL,
@@ -31,9 +31,13 @@ CREATE TABLE `player_vehicles` (
   `job` varchar(20) DEFAULT NULL,
   `pound` varchar(60) DEFAULT NULL,
   `stored` tinyint(4) NOT NULL DEFAULT 0,
-  `keys` longtext DEFAULT '[]',
+  `keys` longtext DEFAULT NULL,
   `metadata` longtext DEFAULT NULL,
-  `parking` varchar(60) DEFAULT NULL
+  `parking` varchar(60) DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `plate` (`plate`),
+  KEY `citizenid` (`citizenid`),
+  KEY `license` (`license`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 
